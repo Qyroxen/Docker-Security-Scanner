@@ -23,12 +23,12 @@ Every developer needs docker security scanner — but existing tools are either 
 
 ## Features
 
-- **Image vulnerability scanning** — Image vulnerability scanning
-- **Container runtime security** — Container runtime security
-- **Base image recommendations** — Base image recommendations
-- **CVE database integration** — CVE database integration
-- **CI/CD pipeline integration** — CI/CD pipeline integration
-- **Compliance checks** — Compliance checks
+- Image vulnerability scanning
+- Container runtime security
+- Base image recommendations
+- CVE database integration
+- CI/CD pipeline integration
+- Compliance checks
 
 ## Quick Start
 
