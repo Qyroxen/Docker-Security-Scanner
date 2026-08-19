@@ -1,32 +1,153 @@
-# Docker-Security-Scanner
+# Docker Security Scanner
 
-Scan Docker images for vulns
+Scan Docker images and containers for vulnerabilities - secure your containerized applications.
+
+[![Go Version](https://img.shields.io/badge/Go-1.23%2B-00ADD8?style=flat&logo=go)](https://go.dev/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg)](http://makeapullrequest.com)
+[![CI](https://github.com/Qyroxen/docker-security-scanner/actions/workflows/ci.yml/badge.svg)](https://github.com/Qyroxen/docker-security-scanner/actions/workflows/ci.yml)
+
+> Scan Docker images and containers for vulnerabilities - secure your containerized applications.
+
+## What is it?
+
+Docker Security Scanner is a command-line tool built with Go that helps developers scan docker images and containers for vulnerabilities - secure your containerized applications. It's designed to be fast, reliable, and easy to use.
+
+## Why?
+
+Every developer needs docker security scanner — but existing tools are either too complex, too slow, or require cloud dependencies. We built Docker Security Scanner to be:
+- **Fast** — Written in Go for maximum performance
+- **Offline** — No cloud dependencies, your data stays on your machine
+- **Simple** — Clean CLI interface with sensible defaults
+- **Extensible** — Easy to customize and integrate into your workflow
 
 ## Features
 
-- Easy-to-use CLI interface
-- Fast and efficient processing
-- Cross-platform support
+- **Image vulnerability scanning** — Image vulnerability scanning
+- **Container runtime security** — Container runtime security
+- **Base image recommendations** — Base image recommendations
+- **CVE database integration** — CVE database integration
+- **CI/CD pipeline integration** — CI/CD pipeline integration
+- **Compliance checks** — Compliance checks
 
-## Installation
+## Quick Start
+
+### Prerequisites
+
+- Go 1.23 or later
+
+### Install
 
 ```bash
-git clone https://github.com/Qyroxen/Docker-Security-Scanner.git
-cd Docker-Security-Scanner
+# Install with go install
+go install github.com/Qyroxen/docker-security-scanner@latest
+
+# Or build from source
+git clone https://github.com/Qyroxen/docker-security-scanner.git
+cd docker-security-scanner
 go build -o docker-security-scanner .
 ```
 
-## Usage
+### Usage
 
 ```bash
-.docker-security-scanner .
+# Basic usage
+.docker-security-scanner --help
+
+# Example
+./docker-security-scanner scan --image nginx:latest
+```
+
+## Output
+
+```
+Docker Security Scanner v1.0.0
+
+Scanning...
+
+✓ Analysis complete
+✓ Results ready
+
+{
+  "status": "success",
+  "results": [...]
+}
+```
+
+## Configuration
+
+Create a `.config.yaml` file in your project root:
+
+```yaml
+# Configuration options
+verbose: true
+output: json
+timeout: 30s
+```
+
+## CLI Flags
+
+```
+docker security scanner [command]
+
+Flags:
+  --path string      Target path (default ".")
+  --format string    Output format: json, text (default "text")
+  --verbose          Enable verbose output
+  --config string    Config file path
+  --output string    Output file path
+```
+
+## Examples
+
+### Basic Example
+
+```bash
 .docker-security-scanner --path ./src
 ```
 
+### Advanced Example
+
+```bash
+.docker-security-scanner --path ./src --format json --output report.json --verbose
+```
+
+### CI/CD Integration
+
+```yaml
+# .github/workflows/ci.yml
+- name: Run Docker Security Scanner
+  run: |
+    go install github.com/Qyroxen/docker-security-scanner@latest
+    docker-security-scanner --path . --format json --output report.json
+```
+
+## Documentation
+
+- [Getting Started](docs/getting-started.md)
+- [Configuration](docs/configuration.md)
+- [API Reference](docs/api-reference.md)
+- [Examples](examples/)
+- [Contributing](CONTRIBUTING.md)
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
 ## License
 
-MIT License - see [LICENSE](LICENSE)
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Author
 
 **Qyroxen** - [GitHub](https://github.com/Qyroxen)
+
+---
+
+**Found this useful?** Give it a ⭐ on GitHub!
